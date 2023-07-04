@@ -12,7 +12,7 @@ body{
 .container{
     width:80%;
     background-color: #fe5050;
-    height:70vh;
+    height:90vh;
     border-radius:1rem;
     display:flex;justify-content: center;flex-direction: column;
     align-items: center;
@@ -38,12 +38,17 @@ body{
     position:absolute;
     animation: non_rotation 20s infinite linear;
 }
+.uploadText{
+    color:white;
+    font-size:2rem;
+    font-family: 'Poppins',sans-serif;
+}
 
 @keyframes rotation {
     from{
         transform: rotate(0deg);
     }to{
-        transform: rotate(359deg);
+        transform: rotate(360deg);
     }
 }
 @keyframes non_rotation {
@@ -56,16 +61,86 @@ body{
 
 .files{
     width:450px;
-    height:200px;
+    height:500px;
     margin-top:2rem;
 }
-.file{
-    height:100%;
+.uploadingFile{
+    height:100px;
     border:2px solid white;
     border-radius:.5rem;
 }
-.uploadText{
+.uploadingFile{
+    display:flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.rightUploadingFile{
+    display:flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+}
+.fileName{
+    font-size:1.4rem;
     color:white;
-    font-size:2rem;
     font-family: 'Poppins',sans-serif;
 }
+.bottomUploadingFile{
+    display:flex;
+    align-items: center;
+}
+.progressBar{
+    width:270px;
+    height:10px;
+    background-color: transparent;
+    border-radius:5px;
+    position: relative;
+}
+.progress{
+    /* width:50%; */
+    width:0;
+    position: absolute;
+    top:0;
+    left:0;
+    border-radius:5px;
+    height:10px;
+    background-color:#ffd7d7;
+}
+.percentage{
+    font-size:1.1rem;
+    color:white;
+    font-family: 'Poppins';
+    margin-left:.5rem;
+}
+
+.uploadedFile{
+    border:2px solid white;
+    max-height: 350px;
+    margin-top:2rem;
+    border-radius:.5rem;
+    overflow-y: auto;
+}
+.uploadedFile::-webkit-scrollbar{
+    width:7px;
+    background-color: white;
+}
+.uploadedFile::-webkit-scrollbar-thumb{
+    background-color: #fe5050;
+    border-radius:3.5px;
+}
+.fileLink{
+    text-decoration: none;
+}
+.eachFile{
+    background-color: white;
+    height:100px;
+display:flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom:.2rem;
+    padding:.5rem 1.5rem .5rem 1.5rem;
+
+}
+/* .eachFile:last-child{
+    margin-bottom:0;
+} */

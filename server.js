@@ -1,5 +1,6 @@
 // Importing the required dependencies
 const express = require("express")
+const bodyParser = require("body-parser")
 const expressLayouts = require("express-ejs-layouts")
 const path = require("path")
 const connectDb = require("./config/dbConnection")
@@ -9,6 +10,12 @@ const app = express()
 
 // Setting up the port
 const port = 5000
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+
+// parse application/json
+app.use(bodyParser.json())
 
 // Calling the function of mongoose connection with database
 connectDb()
