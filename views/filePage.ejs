@@ -3,11 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSV Upload</title>
+    <title><%- title %></title>
     <link rel="stylesheet" href="/css/filePage.css">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>File Page</h1>
+
+    <div class="outerContainer">
+        <h1 class="heading">File: <span class="name"><%- fileName %></span></h1>
+    <!-- <% head.forEach((row)=>{ %>
+        <h1><%- row %></h1>
+    <% }) %> -->
+    <div class="container">
+        <input type="text" placeholder="Search...">
+        <button class="searchButton">Search</button>
+    </div>
+    </div>
+    <div class="tableData">
+        <table>
+            <thead>
+                <tr>
+                    <% for(let h of head) { %>
+                        <th>
+                            <%= h %>
+                        </th>
+                        <% } %>
+                </tr>
+            </thead>
+            <tbody>
+                <% for(let row of data) { %>
+                    <tr>
+                        <% for(let key of Object.keys(row)) { %>
+                            <td>
+                                <%= row[key] %>
+                            </td>
+                            <% } %>
+                    </tr>
+                    <% } %>
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>
