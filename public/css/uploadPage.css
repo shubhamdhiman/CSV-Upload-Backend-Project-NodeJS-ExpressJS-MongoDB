@@ -155,3 +155,24 @@ border-radius:.4rem;
     font-family:'Poppins',sans-serif;
     color:white;
 }
+.notify{
+    font-family: "Poppins",sans-serif;
+    position:absolute;
+    top:1rem;
+    right:0;
+    font-size:1.5rem;
+    border-radius: .5rem 0 0 .5rem;
+    padding:.7rem 1.5rem;
+    transition: all .5s ease-in-out;
+}
+.notifyError{
+    background-color: #fed550;
+    color:black;
+    display:none;
+
+}
+.notifySuccess{
+    background-color: green;
+    color:white;
+    display:none;
+}

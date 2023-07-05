@@ -33,20 +33,35 @@ uploadSection.addEventListener("click",function(){
 
 $('#file-input').change(function(e){
     var file = e.target.files[0]
-    console.log(file)
-    var formData = new FormData();
-    formData.append('inputFile',file)
+    console.log(file, "this is file")
+    if(!file.name.includes("csv")){
+        console.log(false)
+        $("#notifyError").css("display","block")
+        setTimeout(function(){
+            $("#notifyError").css("display","none")
+        },3000)
+    }else{
 
-    $.ajax({
-        url:"/upload",
-        type:"post",
-        data:formData,
-        processData:false,
-        contentType:false,
-        success:function(response){
-            console.log(response)
-            location.reload()
-        },
-        crossDomain:true,
-    })
+        var formData = new FormData();
+        formData.append('inputFile',file)
+    
+        $.ajax({
+            url:"/upload",
+            type:"post",
+            data:formData,
+            processData:false,
+            contentType:false,
+            success:function(response){
+                console.log(response)
+                setTimeout(function(){
+                    location.reload()
+                },2000)
+                $("#notifySuccess").css("display","block")
+                setTimeout(function(){
+                    $("#notifySuccess").css("display","none")
+                },3000)
+            },
+            crossDomain:true,
+        })
+    }
 })

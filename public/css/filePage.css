@@ -10,7 +10,7 @@ body{
     font-family:'Poppins',sans-serif;
 }
 .tableData{
-    margin:0 auto;
+    margin:3rem auto;
     background-color: #fe5050;
     width:95%;
     padding:1rem;
@@ -36,7 +36,7 @@ td{
 .outerContainer{
     width:95%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
 }
 .container{
@@ -46,7 +46,7 @@ input[type="text"]{
     padding:1rem 1.5rem;
     width:300px;
     margin-right:1rem;
-    font-size:1.3rem;
+    font-size:1.7rem;
     transition: all .2s ease-in-out;
 }
 input[type="text"]:focus{
@@ -60,7 +60,7 @@ input[type="text"]:focus::placeholder{
 }
 .searchButton{
     padding:1rem 1.5rem;
-    font-size:1.5rem;
+    font-size:1.7rem;
     background-color: #fe5050;
     color:white;
     border: none;
@@ -74,7 +74,20 @@ input[type="text"]:focus::placeholder{
     margin-top:4rem;
 
 } */
+
+.home{
+    background-color: #fe5050;
+    padding:1rem 1.5rem;
+    border-radius:.5rem;
+}
 .name{
     color:#fe5050;
     font-size:2.2rem;
+}
+a{
+    color:white;
+    text-decoration: none;
+}
+.houseBtni{
+    margin-right:10px;
 }
