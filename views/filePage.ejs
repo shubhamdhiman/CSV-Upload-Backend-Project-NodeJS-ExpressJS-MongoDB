@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="/images/tabIcon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%- title %></title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -17,12 +18,12 @@
         <h1><%- row %></h1>
     <% }) %> -->
     <div class="container">
-        <input type="text" placeholder="Search...">
-        <button class="searchButton">Search</button>
+        <input type="text" placeholder="Search..." id="searchBar">
+        <button id="searchButton" class="searchButton">Search</button>
     </div>
     </div>
     <div class="tableData">
-        <table>
+        <table id="mainTable">
             <thead>
                 <tr>
                     <% for(let h of head) { %>
@@ -32,7 +33,7 @@
                         <% } %>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="tableBody">
                 <% for(let row of data) { %>
                     <tr>
                         <% for(let key of Object.keys(row)) { %>
@@ -45,5 +46,7 @@
             </tbody>
         </table>
     </div>
+    <input type="hidden" id="dataFromFilePage" value="<%= JSON.stringify(data)%>">
 </body>
+<script src="/js/filePage.js"></script>
 </html>
