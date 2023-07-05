@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title><%- title %></title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/uploadPage.css">
@@ -23,13 +23,13 @@
             </div>
         </div>
         <div class="files">
-            <div class="uploadingFile">
+            <!-- <div class="uploadingFile">
                 <div class="leftUploadingFile">
                     <i class="fa-solid fa-file-csv fa-3x" style="color: #ffffff;"></i>
                 </div>
                 <div class="rightUploadingFile">
                     <div class="topUploadingFile">
-                        <p class="fileName"id="fileName"></p>
+                        <p class="fileName"id="fileName">File name</p>
                     </div>
                     <div class="bottomUploadingFile">
                         <div class="progressBar" >
@@ -38,86 +38,34 @@
                         <p class="percentage" id="percentage"></p>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <div class="uploadedFile">
-                <a href="#" class="fileLink">
-                    <div class="eachFile">
-                        <div class="left">
-                            <i class="fa-solid fa-file-csv fa-3x" style="color: #fe5050;"></i>
-                        </div>
-                        <div class="center">
-                            <p class="fileName"style="color:#fe5050;">Students_Data.csv</p>
-                        </div>
-                        <div class="right">
-                            <i class="fa-solid fa-circle-check fa-2x" style="color: #fe5050;"></i>
-                        </div>
-                    </div>
-                </a>
-                <a href="#" class="fileLink">
-                    <div class="eachFile">
-                        <div class="left">
-                            <i class="fa-solid fa-file-csv fa-3x" style="color: #fe5050;"></i>
-                        </div>
-                        <div class="center">
-                            <p class="fileName"style="color:#fe5050;">Students_Data.csv</p>
-                        </div>
-                        <div class="right">
-                            <i class="fa-solid fa-circle-check fa-2x" style="color: #fe5050;"></i>
-                        </div>
-                    </div>
-                </a>
-                <a href="#" class="fileLink">
-                    <div class="eachFile">
-                        <div class="left">
-                            <i class="fa-solid fa-file-csv fa-3x" style="color: #fe5050;"></i>
-                        </div>
-                        <div class="center">
-                            <p class="fileName"style="color:#fe5050;">Students_Data.csv</p>
-                        </div>
-                        <div class="right">
-                            <i class="fa-solid fa-circle-check fa-2x" style="color: #fe5050;"></i>
-                        </div>
-                    </div>
-                </a>
-                <a href="#" class="fileLink">
-                    <div class="eachFile">
-                        <div class="left">
-                            <i class="fa-solid fa-file-csv fa-3x" style="color: #fe5050;"></i>
-                        </div>
-                        <div class="center">
-                            <p class="fileName"style="color:#fe5050;">Students_Data.csv</p>
-                        </div>
-                        <div class="right">
-                            <i class="fa-solid fa-circle-check fa-2x" style="color: #fe5050;"></i>
-                        </div>
-                    </div>
-                </a>
-                <a href="#" class="fileLink">
-                    <div class="eachFile">
-                        <div class="left">
-                            <i class="fa-solid fa-file-csv fa-3x" style="color: #fe5050;"></i>
-                        </div>
-                        <div class="center">
-                            <p class="fileName"style="color:#fe5050;">Students_Data.csv</p>
-                        </div>
-                        <div class="right">
-                            <i class="fa-solid fa-circle-check fa-2x" style="color: #fe5050;"></i>
-                        </div>
-                    </div>
-                </a>
-                <a href="#" class="fileLink">
-                    <div class="eachFile">
-                        <div class="left">
-                            <i class="fa-solid fa-file-csv fa-3x" style="color: #fe5050;"></i>
-                        </div>
-                        <div class="center">
-                            <p class="fileName"style="color:#fe5050;">Students_Data.csv</p>
-                        </div>
-                        <div class="right">
-                            <i class="fa-solid fa-circle-check fa-2x" style="color: #fe5050;"></i>
-                        </div>
-                    </div>
-                </a>
+                <% if(files.length ===0 ) { %>
+                    <p class="notFound"><i class="fa-solid fa-triangle-exclamation " style="color: #ffffff;"></i> Please Upload File</p>
+                <% }else{ %>
+                    <% files.forEach((file)=>{ %>
+
+                        <a href="/filepage/<%- file.file %>" class="fileLink">
+                            <div class="eachFile">
+                                <div class="left">
+                                    <i class="fa-solid fa-file-csv fa-3x" style="color: #fe5050;"></i>
+                                </div>
+                                <div class="center">
+                                    <p class="fileName"style="color:#fe5050;">
+                                        <%- file.fileOriginalName %>
+                                    </p> 
+                                </div>
+                                <div class="right">
+                                    <i class="fa-solid fa-circle-check fa-2x" style="color: #fe5050;"></i>
+                                </div>
+                            </div>
+                        </a>
+    
+                    <% }) %>
+                <% } %>
+                
+                
+                
             </div>
         </div>
     </div>

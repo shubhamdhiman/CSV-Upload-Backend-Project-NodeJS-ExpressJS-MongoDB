@@ -43,8 +43,9 @@ $('#file-input').change(function(e){
         data:formData,
         processData:false,
         contentType:false,
-        success:function(){
-
+        success:function(response){
+            console.log(response)
+            location.reload()
         },
         crossDomain:true,
     })

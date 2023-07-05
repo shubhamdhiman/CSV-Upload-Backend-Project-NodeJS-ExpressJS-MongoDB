@@ -1,22 +1,36 @@
 const express = require("express");
+const csvModel = require("../model/csvModel");
 const multer = require("multer");
 const fs = require("fs");
 const csvParse = require("csv-parser");
-const { homePage, uploadPage } = require("../controllers/csvController");
+const { filePage, uploadPage } = require("../controllers/csvController");
 
 const upload = multer({ dest: "uploads/" });
 
 const route = express.Router();
 
-route.get("/", homePage);
-route.get("/upload", uploadPage);
-route.post("/upload", upload.single("inputFile"), function (req, res) {
-  // console.log(req.body)
-  // console.log(req.file)
+route.get("/filepage/:id", filePage);
+route.get("/", uploadPage);
+
+route.post("/upload", upload.single("inputFile"), async function (req, res) {
+
   let file = req.file;
-  fs.createReadStream(file.path).pipe(csvParse()).on('data',function(data){
-    console.log(data, "this is data...")
-  })
-  res.send({ message: "Upload file url" });
+  if (file.mimetype != "text/csv") {
+    return res.status(400).send("Select CSV files only.");
+  }
+  try {
+    let createFile = await csvModel.create({
+      fileOriginalName: file.originalname,
+      filePath: file.path,
+      file: file.filename,
+    });
+    createFile.save();
+    console.log("file uploaded successfully")
+    res.send({filename:file.originalname,file:file.filename});
+  } catch (err) {
+    console.log("this is the error", err);
+  }
+  
+
 });
 module.exports = route;

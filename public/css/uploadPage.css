@@ -114,33 +114,44 @@ body{
 }
 
 .uploadedFile{
-    border:2px solid white;
-    max-height: 350px;
+    /* border:2px solid white; */
+    max-height: 400px;
     margin-top:2rem;
-    border-radius:.5rem;
+    /* border-radius:.5rem; */
     overflow-y: auto;
 }
 .uploadedFile::-webkit-scrollbar{
     width:7px;
-    background-color: white;
+    /* background-color: white; */
 }
 .uploadedFile::-webkit-scrollbar-thumb{
-    background-color: #fe5050;
+    /* background-color: #fe5050; */
+    background-color: #fff;
     border-radius:3.5px;
 }
 .fileLink{
     text-decoration: none;
 }
 .eachFile{
+    width:95%;
     background-color: white;
     height:100px;
 display:flex;
+border-radius:.4rem;
     justify-content: space-between;
     align-items: center;
-    margin-bottom:.2rem;
+    margin-bottom:.5rem;
     padding:.5rem 1.5rem .5rem 1.5rem;
 
 }
 /* .eachFile:last-child{
     margin-bottom:0;
 } */
+.notFound{
+    margin: 1rem 0;
+    text-align:center;
+    margin-left:auto;
+    font-size:2rem;
+    font-family:'Poppins',sans-serif;
+    color:white;
+}
