@@ -39,6 +39,7 @@ $('#file-input').change(function(e){
         $("#notifyError").css("display","block")
         setTimeout(function(){
             $("#notifyError").css("display","none")
+
         },3000)
     }else{
 

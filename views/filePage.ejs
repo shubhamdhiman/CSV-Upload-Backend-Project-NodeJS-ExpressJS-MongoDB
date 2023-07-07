@@ -18,6 +18,12 @@
         <h1><%- row %></h1>
     <% }) %> -->
     <div class="container">
+        <select name="" id="select">
+         
+                <% head.forEach((h)=>{ %>
+                    <option value="<%- h %>"><%-h%></option>
+                <% }) %>
+        </select>
         <input type="text" placeholder="Search..." id="searchBar">
         <button id="searchButton" class="searchButton">Search</button>
     </div>
@@ -28,7 +34,7 @@
                 <tr>
                     <% for(let h of head) { %>
                         <th>
-                            <%= h %>
+                            <%= h %> &nbsp;<button id="sortButton"><i class="fa-solid fa-sort" style="color: #ffffff;"></i></button>
                         </th>
                         <% } %>
                 </tr>

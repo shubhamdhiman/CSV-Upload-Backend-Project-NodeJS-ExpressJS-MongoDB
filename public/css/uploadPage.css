@@ -8,6 +8,7 @@ body{
     background-color: #ffffff;
     display:flex;justify-content: center;
     align-items: center;
+    transition: all .5s ease-in-out;
 }
 .container{
     width:80%;
@@ -160,9 +161,10 @@ border-radius:.4rem;
     position:absolute;
     top:1rem;
     right:0;
+    width:450px;
     font-size:1.5rem;
     border-radius: .5rem 0 0 .5rem;
-    padding:.7rem 1.5rem;
+    padding:1.5rem 1.5rem;
     transition: all .5s ease-in-out;
 }
 .notifyError{

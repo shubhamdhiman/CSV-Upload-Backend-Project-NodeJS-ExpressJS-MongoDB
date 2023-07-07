@@ -77,7 +77,7 @@ input[type="text"]:focus::placeholder{
 
 .home{
     background-color: #fe5050;
-    padding:1rem 1.5rem;
+    padding:.5rem 1rem;
     border-radius:.5rem;
 }
 .name{
@@ -90,4 +90,15 @@ a{
 }
 .houseBtni{
     margin-right:10px;
+}
+#sortButton{
+    background-color: transparent;
+    font-size:1.2rem;
+    border:none;
+    cursor: pointer;
+}
+#select{
+    padding:1rem 1.5rem;
+    font-size:1.7rem;
+    /* background-; */
 }
