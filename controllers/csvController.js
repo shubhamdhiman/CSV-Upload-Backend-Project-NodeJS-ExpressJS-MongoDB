@@ -12,7 +12,7 @@ const uploadPage = asyncHandler(
         res.render("uploadPage",{files:allFiles,title:"Upload Page"})
     }
 )
-
+let page = 1;
 // File Page Controller
 const filePage = asyncHandler(
     async function(req,res){
@@ -35,6 +35,7 @@ const filePage = asyncHandler(
                 }else{
                     var partialData = results
                 }
+                page = 1;
                 res.render("filePage", {
                     fileId:req.params.id,
                     title: "File Page", 
@@ -42,7 +43,8 @@ const filePage = asyncHandler(
                     head: header,
                     data: partialData,
                     fullData:results,
-                    length: results.length
+                    length: results.length,
+                    page:page
                 });
             });
     }
@@ -69,6 +71,7 @@ const filePageNumber = asyncHandler(
                 fileData = results;
                 let len = +req.params.ide * 100
                 let slicing = fileData.slice(len-100,len)
+                page = +req.params.ide
                 res.render("filePage", {
                     fileId:req.params.id,
                     title: "File Page", 
@@ -76,7 +79,8 @@ const filePageNumber = asyncHandler(
                     head: header,
                     data: slicing,
                     fullData:results,
-                    length: results.length
+                    length: results.length,
+                    page:page
                 });
             });
     }

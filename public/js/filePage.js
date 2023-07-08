@@ -2,11 +2,16 @@ const dataFromServer = document.getElementById("dataFromFilePage");
 const parsedData = JSON.parse(dataFromServer.value);
 const fullDataFromServer = document.getElementById("fullDataFromFilePage")
 const fullParsedData = JSON.parse(fullDataFromServer.value)
-
+const fileId = document.getElementById("fileId")
+const fileIdParsed = JSON.parse(fileId.value)
+const pageNumberFromServer = document.getElementById("pageNumber")
+const pageNumberFromServerParsed = JSON.parse(pageNumberFromServer.value)
 const searchBar = document.getElementById("searchBar");
 const searchButton = document.getElementById("searchButton");
 const mainTable = document.getElementById("mainTable");
 
+
+// Front-End Search Logic
 searchButton.addEventListener("click", searchFunction);
 searchBar.addEventListener("keydown", function (event) {
   if (event.key === "Enter") {
@@ -52,11 +57,34 @@ function searchFunction() {
   }
 }
 
+
+// Front-End Pagination Logic
 let pageNumber = 1;
 const prev = document.getElementById("prev")
 const current = document.getElementById("current")
 const next = document.getElementById("next")
+
 console.log(fullParsedData.length)
 if(fullParsedData.length>100){
-  next.style.display = "block";
+  if(pageNumberFromServerParsed*100 >= fullParsedData.length){
+
+    next.style.display = "none";
+  }else{
+    next.style.display = "block";
+    next.href = `/filePage/${fileIdParsed}/${pageNumberFromServerParsed+1}`
+  }
 }
+if(fullParsedData.length<100){
+  current.style.display = "none";
+}
+if(pageNumberFromServerParsed>1){
+  prev.style.display = "block"
+  current.innerHTML = pageNumberFromServerParsed;
+  current.href=`/filePage/${fileIdParsed}/${pageNumberFromServerParsed}`
+  if(pageNumberFromServerParsed === 2){
+    prev.href=`/filePage/${fileIdParsed}`
+  }
+  prev.href=`/filePage/${fileIdParsed}/${pageNumberFromServerParsed-1}`
+}
+
+
