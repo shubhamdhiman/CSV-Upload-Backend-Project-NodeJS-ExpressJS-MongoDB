@@ -3,13 +3,14 @@ const csvModel = require("../model/csvModel");
 const multer = require("multer");
 const fs = require("fs");
 const csvParse = require("csv-parser");
-const { filePage, uploadPage } = require("../controllers/csvController");
+const { filePage, uploadPage, filePageNumber } = require("../controllers/csvController");
 
 const upload = multer({ dest: "uploads/" });
 
 const route = express.Router();
 
 route.get("/filepage/:id", filePage);
+route.get("/filepage/:id/:ide", filePageNumber);
 route.get("/", uploadPage);
 
 route.post("/upload", upload.single("inputFile"), async function (req, res) {

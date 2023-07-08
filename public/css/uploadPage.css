@@ -98,7 +98,6 @@ body{
     position: relative;
 }
 .progress{
-    /* width:50%; */
     width:0;
     position: absolute;
     top:0;
@@ -115,18 +114,14 @@ body{
 }
 
 .uploadedFile{
-    /* border:2px solid white; */
     max-height: 400px;
     margin-top:2rem;
-    /* border-radius:.5rem; */
     overflow-y: auto;
 }
 .uploadedFile::-webkit-scrollbar{
     width:7px;
-    /* background-color: white; */
 }
 .uploadedFile::-webkit-scrollbar-thumb{
-    /* background-color: #fe5050; */
     background-color: #fff;
     border-radius:3.5px;
 }
@@ -145,9 +140,6 @@ border-radius:.4rem;
     padding:.5rem 1.5rem .5rem 1.5rem;
 
 }
-/* .eachFile:last-child{
-    margin-bottom:0;
-} */
 .notFound{
     margin: 1rem 0;
     text-align:center;

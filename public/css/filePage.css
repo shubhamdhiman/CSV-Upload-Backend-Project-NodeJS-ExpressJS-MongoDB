@@ -20,16 +20,16 @@ body{
     width:95%;
 } */
 thead{
-    padding:1rem;
+    padding:.7rem;
     color:white;
 }
 th{
-    font-size:1.5rem;
+    font-size:1.3rem;
 }
 td{
-    font-size:1.2rem;
+    font-size:1.1rem;
     background-color: white;
-    padding:.5rem;
+    padding:.3rem;
     border-radius: .5rem;
     font-weight:bold;
 }
@@ -77,12 +77,12 @@ input[type="text"]:focus::placeholder{
 
 .home{
     background-color: #fe5050;
-    padding:.5rem 1rem;
+    padding:.3rem .7rem;
     border-radius:.5rem;
 }
 .name{
     color:#fe5050;
-    font-size:2.2rem;
+    font-size:1.8rem;
 }
 a{
     color:white;
@@ -101,4 +101,30 @@ a{
     padding:1rem 1.5rem;
     font-size:1.7rem;
     /* background-; */
+}
+
+.paginationContainer{
+    width: 100%;
+    display:flex;
+    justify-content: center;
+    margin:0rem 0 5rem 0;
+}
+.paginationLink{
+    background-color: #fe5050;
+    color:white;
+    font-weight: bold;
+    font-size:1.4rem;
+    padding:.4rem .8rem;
+    margin:0 .5rem;
+    border-radius:.2rem;
+    transition: all .2s ease-in-out;
+}
+.paginationLink:hover{
+    transform: scale(1.05);
+}
+.prev{
+    display:none;
+}
+.next{
+    display:none;
 }

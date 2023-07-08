@@ -1,6 +1,7 @@
 const dataFromServer = document.getElementById("dataFromFilePage");
 const parsedData = JSON.parse(dataFromServer.value);
-console.log(parsedData);
+const fullDataFromServer = document.getElementById("fullDataFromFilePage")
+const fullParsedData = JSON.parse(fullDataFromServer.value)
 
 const searchBar = document.getElementById("searchBar");
 const searchButton = document.getElementById("searchButton");
@@ -49,4 +50,13 @@ function searchFunction() {
     console.log(arr);
     run++;
   }
+}
+
+let pageNumber = 1;
+const prev = document.getElementById("prev")
+const current = document.getElementById("current")
+const next = document.getElementById("next")
+console.log(fullParsedData.length)
+if(fullParsedData.length>100){
+  next.style.display = "block";
 }
