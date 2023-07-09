@@ -17,7 +17,6 @@ let page = 1;
 const filePage = asyncHandler(
     async function(req,res){
         let csvFile = await files.findOne({ file: req.params.id });
-        // console.log(csvFile);
         const results = [];
         const header = [];
         fs.createReadStream(csvFile.filePath) //seeting up the path for file upload

@@ -1,8 +1,13 @@
 // Importing the required dependencies
 const express = require("express")
+
+// Importing bodyparser
 const bodyParser = require("body-parser")
-const expressLayouts = require("express-ejs-layouts")
+
+// Importing path
 const path = require("path")
+
+// Importing the mongoose connection
 const connectDb = require("./config/dbConnection")
 
 // Calling the express function and storing it in app variable

@@ -1,18 +1,30 @@
 const express = require("express");
+
+// Importing csv Model
 const csvModel = require("../model/csvModel");
-const multer = require("multer");
-const fs = require("fs");
-const csvParse = require("csv-parser");
+
+// Importing the controller functions
 const { filePage, uploadPage, filePageNumber } = require("../controllers/csvController");
 
+// Using multer to get the data from the front-end and store
+const multer = require("multer");
 const upload = multer({ dest: "uploads/" });
+// const fs = require("fs");
+// const csvParse = require("csv-parser");
 
+// Calling the router method
 const route = express.Router();
 
-route.get("/filepage/:id", filePage);
-route.get("/filepage/:id/:ide", filePageNumber);
+// Landing page route
 route.get("/", uploadPage);
 
+// Route for file
+route.get("/filepage/:id", filePage);
+
+// Route for pagination
+route.get("/filepage/:id/:ide", filePageNumber);
+
+// Route to upload a csv file
 route.post("/upload", upload.single("inputFile"), async function (req, res) {
 
   let file = req.file;
@@ -26,7 +38,6 @@ route.post("/upload", upload.single("inputFile"), async function (req, res) {
       file: file.filename,
     });
     createFile.save();
-    console.log("file uploaded successfully")
     res.send({filename:file.originalname,file:file.filename});
   } catch (err) {
     console.log("this is the error", err);
@@ -34,4 +45,6 @@ route.post("/upload", upload.single("inputFile"), async function (req, res) {
   
 
 });
+
+// Exporting the routes
 module.exports = route;

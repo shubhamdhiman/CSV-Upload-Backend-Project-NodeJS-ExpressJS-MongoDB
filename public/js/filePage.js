@@ -1,13 +1,25 @@
+
+// PartialData according to page(100)
 const dataFromServer = document.getElementById("dataFromFilePage");
 const parsedData = JSON.parse(dataFromServer.value);
+
+// Full data of the file(all the rows)
 const fullDataFromServer = document.getElementById("fullDataFromFilePage")
 const fullParsedData = JSON.parse(fullDataFromServer.value)
+
+// name of the file 
 const fileId = document.getElementById("fileId")
 const fileIdParsed = JSON.parse(fileId.value)
+
+// pageNumber from the server
 const pageNumberFromServer = document.getElementById("pageNumber")
 const pageNumberFromServerParsed = JSON.parse(pageNumberFromServer.value)
+
+// Navbar Elements
 const searchBar = document.getElementById("searchBar");
 const searchButton = document.getElementById("searchButton");
+
+// Main Table
 const mainTable = document.getElementById("mainTable");
 
 
@@ -64,7 +76,7 @@ const prev = document.getElementById("prev")
 const current = document.getElementById("current")
 const next = document.getElementById("next")
 
-console.log(fullParsedData.length)
+
 if(fullParsedData.length>100){
   if(pageNumberFromServerParsed*100 >= fullParsedData.length){
 
@@ -87,4 +99,13 @@ if(pageNumberFromServerParsed>1){
   prev.href=`/filePage/${fileIdParsed}/${pageNumberFromServerParsed-1}`
 }
 
+
+
+// Sorting based upon column
+const sortButton = document.getElementsByClassName("sortbutton")
+for(let i = 0;i<sortButton.length;i++){
+  sortButton[i].addEventListener("click",function(){
+    console.log(sortButton[i].name)
+  })
+}
 

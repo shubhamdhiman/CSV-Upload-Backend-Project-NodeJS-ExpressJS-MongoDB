@@ -4,54 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%- title %></title>
+    <!-- Tab Icon -->
     <link rel="icon" type="image/x-icon" href="/images/tabIcon.png">
+    <!-- FontAwesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Google Fonts CDN -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- CSS File -->
     <link rel="stylesheet" href="/css/uploadPage.css">
+    <!-- Jquery CDN -->
     <script defer src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <!-- Ajax CDN -->
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- JS file -->
     <script defer src="/js/uploadPage.js" ></script>
 </head>
 <body>
+    <!-- Notifications div to check the csv file validation -->
     <div class="notify notifyError"id="notifyError">
         <i class="fa-solid fa-triangle-exclamation" style="color: #000000;"></i>&nbsp;Please Upload a CSV File
     </div>
     <div class="notify notifySuccess"id="notifySuccess">
         <i class="fa-solid fa-circle-check" style="color: #ffffff;"></i>&nbsp;File Uploaded Successfully
     </div>
+    <!--  -->
+
+    <!-- Main Container -->
     <div class="container">
         <div class="uploadSection" id="uploadSection">
             <div class="uploadSectionInner" >
-                <!-- <form enctype="multipart/form-data"> -->
+                    <!-- Input Element to get the file from user  -->
                     <input name='inputFile' type="file" id="file-input"  hidden>
-                <!-- </form> -->
+              
                 <i class="fa-solid fa-cloud-arrow-up fa-3x" style="color:white;"></i>
                 <p class="uploadText">Upload Files</p>
             </div>
         </div>
         <div class="files">
-            <!-- <div class="uploadingFile">
-                <div class="leftUploadingFile">
-                    <i class="fa-solid fa-file-csv fa-3x" style="color: #ffffff;"></i>
-                </div>
-                <div class="rightUploadingFile">
-                    <div class="topUploadingFile">
-                        <p class="fileName"id="fileName">File name</p>
-                    </div>
-                    <div class="bottomUploadingFile">
-                        <div class="progressBar" >
-                            <div class="progress"id="progress"></div>
-                        </div>
-                        <p class="percentage" id="percentage"></p>
-                    </div>
-                </div>
-            </div> -->
             <div class="uploadedFile">
+                <!-- Applying condition to check if any file is present or not -->
                 <% if(files.length ===0 ) { %>
                     <p class="notFound"><i class="fa-solid fa-triangle-exclamation " style="color: #ffffff;"></i> Please Upload File</p>
                 <% }else{ %>
+                    <!-- looping over all the elements to print the files present in database -->
                     <% files.forEach((file)=>{ %>
-
+                        <!-- Wraping the file inside a link -->
                         <a href="/filepage/<%- file.file %>" class="fileLink">
                             <div class="eachFile">
                                 <div class="left">
