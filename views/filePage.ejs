@@ -50,13 +50,7 @@
             <!-- Looping for all the headers with the sort button -->
             <% for(let [index,h] of head.entries()) { %>
             <th>
-              <%= h %> &nbsp;<button
-                id="sortButton"
-                class="sortbutton"
-                name="<%- index %>"
-              >
-                <i class="fa-solid fa-sort" style="color: #ffffff"></i>
-              </button>
+              <%= h %>
             </th>
             <% } %>
           </tr>

@@ -34,7 +34,6 @@ let run = 0;
 function searchFunction() {
   const select = document.getElementById("select");
   const optionValue = select.value;
-  console.log(searchBar.value);
   if (searchBar.value === "") {
     location.reload();
   } else if (searchBar.value !== "") {
@@ -99,13 +98,4 @@ if(pageNumberFromServerParsed>1){
   prev.href=`/filePage/${fileIdParsed}/${pageNumberFromServerParsed-1}`
 }
 
-
-
-// Sorting based upon column
-const sortButton = document.getElementsByClassName("sortbutton")
-for(let i = 0;i<sortButton.length;i++){
-  sortButton[i].addEventListener("click",function(){
-    console.log(sortButton[i].name)
-  })
-}
 
