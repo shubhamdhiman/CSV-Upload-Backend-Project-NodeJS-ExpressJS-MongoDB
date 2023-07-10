@@ -14,7 +14,7 @@ const connectDb = require("./config/dbConnection")
 const app = express()
 
 // Setting up the port
-const port = 5000
+const port =process.env.PORT || 5000
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
